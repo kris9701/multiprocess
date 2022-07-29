@@ -85,6 +85,7 @@ int main(int argc, char* argv[])
         for(int j = 0; j < max; j++){
             if(sockinfos[j].fd == -1){
                 pinfo = &sockinfos[j];
+                break;
             }
 
             // When there are no idle threads, wait.
