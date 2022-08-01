@@ -6,6 +6,7 @@
 int main() {
     // 创建socket
     int fd = socket(PF_INET, SOCK_STREAM, 0);
+    printf("clientfd: %d\n", fd);
     if(fd == -1) {
         perror("socket");
         return -1;
@@ -36,8 +37,8 @@ int main() {
             printf("服务器已经断开连接...\n");
             break;
         }
-        // sleep(1);
-        usleep(1000);
+        sleep(1);
+        // usleep(1000);
     }
     close(fd);
     return 0;

@@ -11,6 +11,7 @@ int main()
 {
     int listenfd;
     listenfd = socket(PF_INET, SOCK_STREAM, 0);
+    printf("listenfd: %d\n", listenfd);
     if(listen < 0) {
         perror("socket");
         exit(-1);
@@ -51,6 +52,7 @@ int main()
                 struct sockaddr_in clientaddr; 
                 int len = sizeof(clientaddr);
                 int connfd = accept(listenfd, (struct sockaddr*)&clientaddr, (socklen_t*)&len);
+                printf("connfd: %d\n", connfd);
                 FD_SET(connfd, &allset);
                 maxfd = maxfd > connfd ? maxfd : connfd;
             }
